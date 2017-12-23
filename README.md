@@ -1,0 +1,1 @@
+First Python project attempt, to build an art generator
