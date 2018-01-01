@@ -5,10 +5,12 @@ import random
 #image library pillow
 from PIL import Image, ImageDraw
 
-print(random.randint(0,9))
-if int{1, 3, 5}:
+random.randint(0,15)
+if int{1, 3, 5, 13, 15}:
     im = Image.open(phonebase.jpg)
-elseif int{2, 8, 9}:
+elseif int{2, 8, 9, 12}:
     im = Image.open(1920x1200.jpg)
-else
+elseif int{4, 10, 11, 14}:
     im = Image.open(1200x900.jpg)
+else
+    end
