@@ -22,5 +22,5 @@ numbo.close()
 #    im = Image.open(1920x1200.jpg)
 #elif int{4, 10, 11, 14}:
 #    im = Image.open(1200x900.jpg)
-#else
+#else:
 #    end
