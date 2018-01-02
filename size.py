@@ -7,6 +7,7 @@ from PIL import Image, ImageDraw
 
 numbo = open('num.log', 'w')
 
+#hex 16 number
 hex(random.randint(0,15))
 
 
