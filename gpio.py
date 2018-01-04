@@ -48,16 +48,20 @@ def chip(dat):
 
 def beep():
     while True:
-         if not GPIO.input(TouchPin):
-             chip(lights[randint(0,15)])
-             time.sleep(2.0)
-         chip(lights[randint(0,15)])
-         time.sleep(0.060)
+#         if not GPIO.input(TouchPin):
+#             chip(lights[randint(0,15)])
+#             time.sleep(2.0)
+#         chip(lights[randint(0,15)])
+#         time.sleep(0.060)
+
+          for q in range(0, len(lights)):
+                chip(lights[q])
+                time.sleep(0.5)
 
 #execute on death
 def destroy():
     GPIO.cleanup()
-    num.close()
+#    num.close()
 
 #oh god
 if __name__ == '__main__':
