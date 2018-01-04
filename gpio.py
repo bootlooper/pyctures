@@ -2,6 +2,7 @@
 import RPi.GPIO as GPIO
 import time
 import random
+from random import randint
 
 # display
 SDI = 17 
@@ -20,10 +21,10 @@ lights = [0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x77,0x7c,0x39,0x5e,
 num = open('num.log','w')
 rando = random.choice(lights)
 
-def numbo():
-    rando()
+#def numbo():
+#    rando()
         
-        num.write()
+#        num.write()
 
 def start():
     print('starting the generation')
@@ -60,7 +61,7 @@ def destroy():
 
 #oh god
 if __name__ == '__main__':
-    numbo()
+#    numbo()
     start()
     try:
          beep()
