@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import RPi.GPIO as GPIO
+import time
 import random
 
 # display
@@ -14,11 +15,15 @@ TouchPin = 22
 
 #should start num?
 
+lights = [0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x77,0x7c,0x39,0x5e,0x79,0x71,0x80]
+
 num = open('num.log','w')
-rando = hex(random.randint(0,15))
+rando = random.choice(lights)
 
 def numbo():
-    num.write(rando)
+    rando()
+        
+        num.write()
 
 def start():
     print('starting the generation')
@@ -43,9 +48,9 @@ def chip(dat):
 def beep():
     while True:
          if not GPIO.input(TouchPin):
-             hc595_shift(num.read())
+             chip(lights[randint(0,15)])
              time.sleep(2.0)
-         hc595_shift(num.read())
+         chip(lights[randint(0,15)])
          time.sleep(0.060)
 
 #execute on death
