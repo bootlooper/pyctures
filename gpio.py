@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import RPi.GPIO as GPIO
+import random
 
 # display
 SDI = 17 
@@ -13,10 +14,15 @@ TouchPin = 22
 
 #should start num?
 
-num = open('num.log')
+num = open('num.log','w')
+rando = hex(random.randint(0,15))
+
+def numbo()
+    num.write(rando)
 
 def start():
 	print 'starting the generation'
+	GPIO.setmode(GPIO.BCM)
   	GPIO.setup(SDI, GPIO.OUT, initial=GPIO.LOW)
 	GPIO.setup(RCLK, GPIO.OUT, initial=GPIO.LOW)
 	GPIO.setup(SRCLK, GPIO.OUT, initial=GPIO.LOW)
@@ -25,6 +31,12 @@ def start():
 	
 # the 74HC595 chip stuff
 def chip(dat):
+ 	for bit in range(0, 15):	
+ 		GPIO.output(SDI, 0x80 & (dat << bit))
+ 		GPIO.output(SRCLK, GPIO.HIGH)
+ 		time.sleep(0.001)
+ 		GPIO.output(SRCLK, GPIO.LOW)
+	GPIO.output(RCLK, GPIO.HIGH)
     time.sleep(0.001)
     GPIO.output(RCLK, GPIO.LOW)
 
@@ -43,6 +55,7 @@ def destroy():
 
 #oh god
 if __name__ == '__main__':
+	numbo()
 	start()
 	setup()
 	try:
