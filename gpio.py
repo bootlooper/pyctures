@@ -42,7 +42,7 @@ def chip(dat):
         GPIO.output(SRCLK, GPIO.HIGH)
         time.sleep(0.001)
         GPIO.output(SRCLK, GPIO.LOW)
-        GPIO.output(RCLK, GPIO.HIGH)
+    GPIO.output(RCLK, GPIO.HIGH)
     time.sleep(0.001)
     GPIO.output(RCLK, GPIO.LOW)
 
