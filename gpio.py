@@ -18,7 +18,7 @@ TouchPin = 22
 
 lights = [0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x77,0x7c,0x39,0x5e,0x79,0x71,0x80]
 
-num = open('num.log','w')
+num = open('numbo','w')
 rando = random.choice(lights)
 
 #def numbo():
@@ -56,7 +56,9 @@ def beep():
 
           for q in range(0, len(lights)):
                 chip(lights[q])
+                num.write(str(lights[q]))
                 time.sleep(0.5)
+
 
 #execute on death
 def destroy():
@@ -71,3 +73,5 @@ if __name__ == '__main__':
          beep()
     except KeyboardInterrupt:
          destroy()
+         num.close()
+
