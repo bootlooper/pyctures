@@ -62,7 +62,7 @@ def beep():
 #execute on death
 def destroy():
     GPIO.cleanup()
-#    num.close()
+    num.close()
 
 #oh god
 if __name__ == '__main__':
