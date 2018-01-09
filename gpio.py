@@ -5,9 +5,10 @@ import random
 from random import randint
 
 # display
-SDI = 17 
-RCLK = 18 
-SRCLK = 27
+#was pin no wrong?
+SDI   = 11
+RCLK  = 12
+SRCLK = 13
 
 #button
 TouchPin = 22
@@ -20,11 +21,6 @@ lights = [0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x77,0x7c,0x39,0x5e,
 
 num = open('num','w+')
 rando = random.choice(lights)
-
-#def numbo():
-#    rando()
-        
-#        num.write()
 
 #trying a new method via interwebs; Number GPIOs by its physical location
 
@@ -70,7 +66,6 @@ def destroy():
 
 #oh god
 if __name__ == '__main__':
-#    numbo()
     start()
     try:
          beep()
