@@ -20,19 +20,23 @@ lights = [0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x77,0x7c,0x39,0x5e,
 
 num = open('num','w+')
 rando = random.choice(lights)
+flag = 0
 
 #trying a new method via interwebs; Number GPIOs by its physical location
 
-def start():
+def words():
     print('starting the generation')
-    GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(SDI, GPIO.OUT)
-    GPIO.setup(RCLK, GPIO.OUT)
-    GPIO.setup(SRCLK, GPIO.OUT)
-    GPIO.output(SDI, GPIO.LOW)
-    GPIO.output(RCLK, GPIO.LOW)
-    GPIO.output(SRCLK, GPIO.LOW)
     print('release jorts')
+
+def start():
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setwarnings(False)
+    GPIO.setup(SDI, GPIO.OUT, initial=GPIO.LOW)
+    GPIO.setup(RCLK, GPIO.OUT, initial=GPIO.LOW)
+    GPIO.setup(SRCLK, GPIO.OUT, initial=GPIO.LOW)
+    GPIO.setup(TouchPin, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+    GPIO.add_event_detect(TouchPin, GPIO.RISING, callback = randomISR, bouncetime = 20)
+
 
 # the 74HC595 chip stuff
 def chip(dat):
@@ -44,19 +48,28 @@ def chip(dat):
     GPIO.output(RCLK, GPIO.HIGH)
     time.sleep(0.001)
     GPIO.output(RCLK, GPIO.LOW)
+	
+	
+def randomGOD(channel):
+    global flag
+    flag = 1
 
 def beep():
+    global flag
+	words()
     while True:
-#         if not GPIO.input(TouchPin):
-#             chip(lights[randint(0,15)])
-#             time.sleep(2.0)
-#         chip(lights[randint(0,15)])
-#         time.sleep(0.060)
+        screen = random.randint(0,15)
+        chip(SegCode[screen])
+        print screen, hex(SegCode[screen])
+        if flag == 1:
+            print "Num: ", screen
+			num.write(hex(screen)
+            time.sleep(2)
+            flag = 0
+        else:
+            time.sleep(0.01)
 
-          for q in range(0, len(lights)):
-                chip(lights[q])
-                time.sleep(0.5)
-#                num.write(lights[q])
+
 
 #execute on death
 def destroy():
