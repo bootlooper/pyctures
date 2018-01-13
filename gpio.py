@@ -6,10 +6,9 @@ from random import randint
 
 # display
 #was pin no wrong?
-SDI   = 11
-RCLK  = 12
-SRCLK = 13
-
+SDI   = 17
+RCLK  = 18
+SRCLK = 27
 #button
 TouchPin = 22
 
@@ -26,14 +25,14 @@ rando = random.choice(lights)
 
 def start():
     print('starting the generation')
-	GPIO.setmode(GPIO.BOARD)
-	GPIO.setup(SDI, GPIO.OUT)
-	GPIO.setup(RCLK, GPIO.OUT)
-	GPIO.setup(SRCLK, GPIO.OUT)
-	GPIO.output(SDI, GPIO.LOW)
-	GPIO.output(RCLK, GPIO.LOW)
-	GPIO.output(SRCLK, GPIO.LOW)
-	print('release jorts')
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setup(SDI, GPIO.OUT)
+    GPIO.setup(RCLK, GPIO.OUT)
+    GPIO.setup(SRCLK, GPIO.OUT)
+    GPIO.output(SDI, GPIO.LOW)
+    GPIO.output(RCLK, GPIO.LOW)
+    GPIO.output(SRCLK, GPIO.LOW)
+    print('release jorts')
 
 # the 74HC595 chip stuff
 def chip(dat):
@@ -57,7 +56,7 @@ def beep():
           for q in range(0, len(lights)):
                 chip(lights[q])
                 time.sleep(0.5)
-				num.write(lights[q])
+#                num.write(lights[q])
 
 #execute on death
 def destroy():
