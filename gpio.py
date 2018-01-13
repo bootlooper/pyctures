@@ -22,7 +22,6 @@ num = open('num','w+')
 rando = random.choice(lights)
 flag = 0
 
-#trying a new method via interwebs; Number GPIOs by its physical location
 
 def words():
     print('starting the generation')
@@ -48,22 +47,22 @@ def chip(dat):
     GPIO.output(RCLK, GPIO.HIGH)
     time.sleep(0.001)
     GPIO.output(RCLK, GPIO.LOW)
-	
-	
-def randomGOD(channel):
+
+
+def randomISR(channel):
     global flag
     flag = 1
 
 def beep():
     global flag
-	words()
+    words()
     while True:
         screen = random.randint(0,15)
-        chip(SegCode[screen])
-        print screen, hex(SegCode[screen])
+        chip(lights[screen])
+        print(screen), lights[screen]
         if flag == 1:
-            print "Num: ", screen
-			num.write(hex(screen)
+#            print 'Num: ', screen
+#            num.write(screen)
             time.sleep(2)
             flag = 0
         else:
