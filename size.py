@@ -23,7 +23,12 @@ def stop():
     numbo.close()
 
 if __name__ == '__main__':
-    if numbo is lights[0,3,7]:
-        size1.open()
+#    if numbo is:
+#        size1.open()
+    source = iparsed.open('size(random.randint(0,5)).jpg')
+    size = PIL.Image.size(source)
+    Image.transform(size, extent, data=None, 
+nearest, fill=1, fillcolor=(random(000000, FFFFFF)))
+
     elif numbo not in main:
         stop()
