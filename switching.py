@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import RPi.GPIO as GPIO
 import time
+import PIL
 
 Switch = 
 #Button = 
@@ -16,6 +17,9 @@ def book():
 
 def button():
     if push == 0
+    
+    elif push == 1 
+        stage1 = random[sizes]
         
 
 if __name__ == '__main__'
