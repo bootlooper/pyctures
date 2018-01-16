@@ -1,0 +1,6 @@
+https://api.unsplash.com/
+Accept-Version: v1
+GET
+Authorization: Client-ID b8d2628cb2672753aa191c78585901fdedf82b7bb58bcd3744c8c367c22c32b8
+https://api.unsplash.com/photos/?client_id=b8d2628cb2672753aa191c78585901fdedf82b7bb58bcd3744c8c367c22c32b8
+https://unsplash.com/documentation#list-photos
